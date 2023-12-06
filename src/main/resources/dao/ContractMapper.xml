@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.paas_decentralized_webplatform.dao.ContractMapper">
+
+
+    <insert id="insertData">
+        insert into book(name,cid,flag,sort,Txid) values (#{name},#{cid},#{flag},#{sort},#{Txid})
+    </insert>
+
+    <select id="countSort" resultType="hashmap">
+        select  sort,count(sort) from book group by sort
+    </select>
+
+    <select id="countFlag" resultType="hashmap">
+        select  flag,count(flag) from book group by flag
+    </select>
+
+    <select id="selectByName" resultType="com.example.paas_decentralized_webplatform.pojo.ResourceInfo">
+        select * from book where name = #{name}
+    </select>
+
+    <select id="selectAll" resultType="com.example.paas_decentralized_webplatform.pojo.ResourceInfo">
+        select *from book
+    </select>
+
+    <update id="updateData" >
+        update tempdata set name = #{name}
+    </update>
+
+
+</mapper>
